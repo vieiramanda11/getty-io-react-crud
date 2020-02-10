@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-export class PostList extends Component {
-  render() {
-    if (this.props.posts.length) {
-      return (
-        <div>
-          <h1>POSTS</h1>
-          {this.props.posts.map(post => {
-            return (
-              <div key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.content}</p>
-              </div>
-            )
-          })}
-        </div>
-      )
-    } else {
-      return (
-        <h2>NO POST</h2>
-      )
-    }
+const PostList = ({ posts }) => {
+  let renderPosts;
+  if (posts.length > 0) {
+    renderPosts = posts.map(post => (
+      <div key={post.id}>
+        <h5>{post.title}</h5>
+      </div>
+    ));
   }
-}
+  return (
+    <div>
+      {renderPosts}
+    </div>
+  );
+};
+
+PostList.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 const mapStateToProps = state => ({ posts: state.posts });
 
