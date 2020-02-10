@@ -3,7 +3,7 @@ import '../styles/App.css';
 import PostList from './PostList';
 
 const App = () => (
-  <div className="App">
+  <div className="ui relaxed four column grid container">
     <PostList />
   </div>
 );

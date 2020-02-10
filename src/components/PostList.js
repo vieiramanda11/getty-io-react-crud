@@ -6,8 +6,15 @@ const PostList = ({ posts }) => {
   let renderPosts;
   if (posts.length > 0) {
     renderPosts = posts.map(post => (
-      <div key={post.id}>
-        <h5>{post.title}</h5>
+      <div key={post.id} className="column">
+        <div className="ui card">
+          <div className="content">
+            <div className="header">{post.title}</div>
+            <div className="description">
+              <p>{post.body}</p>
+            </div>
+          </div>
+        </div>
       </div>
     ));
   }
