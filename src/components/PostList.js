@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { deletePost } from '../actions';
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts, deletePost }) => {
+
+
+  const handleRemovePost = (post) => {
+    deletePost(post);
+  };
+
   let renderPosts;
   if (posts.length > 0) {
     renderPosts = posts.map(post => (
@@ -14,7 +21,7 @@ const PostList = ({ posts }) => {
               <p>{post.body}</p>
             </div>
             <button type="button">Edit</button>
-            <button type="button">Delete</button>
+            <button type="button" onClick={handleRemovePost}>Delete</button>
           </div>
         </div>
       </div>
@@ -33,5 +40,7 @@ PostList.propTypes = {
 
 const mapStateToProps = state => ({ posts: state.posts });
 
+const mapDispatchToProps = { deletePost };
 
-export default connect(mapStateToProps)(PostList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostList);

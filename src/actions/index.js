@@ -42,7 +42,7 @@ export const getPost = id => {
   };
 };
 
-export const deletePost = (id) => {
+export const deletePost = id => {
   return dispatch => {
     return axios.delete(`${BASE_URL}/${id}`)
       .then(response => {
