@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost } from '../actions';
+import { addPost } from '../actions/index';
 
 const PostForm = ({ addPost }) => {
   const [state, setState] = useState({

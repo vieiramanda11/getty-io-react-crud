@@ -1,4 +1,4 @@
-import { RECEIVE_POSTS, ADD_POST } from '../actions';
+import { RECEIVE_POSTS, ADD_POST, REMOVE_POST } from '../actions';
 
 const initialState = { posts: [] };
 const postsReducer = (state = initialState, action) => {
@@ -7,6 +7,8 @@ const postsReducer = (state = initialState, action) => {
       return action.posts;
     case ADD_POST:
       return [action.payload, ...state];
+    case REMOVE_POST:
+      return state.filter(post => post.id !== action.payload.id);
     default:
       return state;
   }

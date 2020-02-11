@@ -13,6 +13,8 @@ const PostList = ({ posts }) => {
             <div className="description">
               <p>{post.body}</p>
             </div>
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
           </div>
         </div>
       </div>
@@ -30,5 +32,6 @@ PostList.propTypes = {
 };
 
 const mapStateToProps = state => ({ posts: state.posts });
+
 
 export default connect(mapStateToProps)(PostList);
