@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
   let renderPosts;
-  if (posts.length > 0) {
+  if (posts.length) {
     renderPosts = posts.map(post => (
       <div key={post.id} className="column">
         <div className="ui card">

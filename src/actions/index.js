@@ -31,7 +31,7 @@ export const addPost = ({ title, body }) => {
         const { data } = response;
         dispatch({
           type: ADD_POST,
-          payload: { title: data.title, body: data.body },
+          payload: { id: data.id, title: data.title, body: data.body },
         });
       })
       .then(() => {
