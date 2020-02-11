@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deletePost } from '../actions';
+import { Link } from 'react-router-dom';
 
-const PostList = ({ posts, deletePost }) => {
-
-
-  const handleRemovePost = (post) => {
-    deletePost(post);
-  };
+const PostList = ({ posts }) => {
 
   let renderPosts;
   if (posts.length > 0) {
@@ -16,12 +11,14 @@ const PostList = ({ posts, deletePost }) => {
       <div key={post.id} className="column">
         <div className="ui card">
           <div className="content">
-            <div className="header">{post.title}</div>
+            <div className="header">
+              <Link to={`/posts/${post.id}`}>
+                {post.title}
+              </Link>
+            </div>
             <div className="description">
               <p>{post.body}</p>
             </div>
-            <button type="button">Edit</button>
-            <button type="button" onClick={handleRemovePost}>Delete</button>
           </div>
         </div>
       </div>
@@ -40,7 +37,4 @@ PostList.propTypes = {
 
 const mapStateToProps = state => ({ posts: state.posts });
 
-const mapDispatchToProps = { deletePost };
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostList);
+export default connect(mapStateToProps)(PostList);
