@@ -18,7 +18,7 @@ const PostForm = ({ addPost }) => {
     event.preventDefault();
     const { title, body } = state;
     if (title) {
-      addPost({ id: (Math.random() * (10 ** 9)), title, body });
+      addPost({ title, body });
       setState({
         title: '',
         body: '',

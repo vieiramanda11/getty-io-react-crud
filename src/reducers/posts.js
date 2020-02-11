@@ -1,4 +1,6 @@
-import { RECEIVE_POSTS, ADD_POST, REMOVE_POST } from '../actions';
+import {
+  RECEIVE_POSTS, ADD_POST, REMOVE_POST, REPLACE_POST,
+} from '../actions';
 
 const initialState = { posts: [] };
 const postsReducer = (state = initialState, action) => {
@@ -9,6 +11,16 @@ const postsReducer = (state = initialState, action) => {
       return [action.payload, ...state];
     case REMOVE_POST:
       return state.filter(post => post.id !== action.payload.id);
+    case REPLACE_POST:
+      return state.map(post => {
+        if (post.id === action.payload.id) {
+          return {
+            ...post,
+            title: action.payload.title,
+            body: action.payload.body,
+          };
+        } return post;
+      });
     default:
       return state;
   }
