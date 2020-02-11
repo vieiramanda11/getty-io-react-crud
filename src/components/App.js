@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/App.css';
+import { Route, Router, Switch } from 'react-router-dom';
 import PostList from './PostList';
 import PostForm from './PostForm';
 import PostInfo from './PostInfo';
 import PostEdit from './PostEdit';
-import { Route, Router, Switch } from 'react-router-dom';
 import history from '../history';
 
 const App = () => (

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
-
   let renderPosts;
   if (posts.length > 0) {
     renderPosts = posts.map(post => (

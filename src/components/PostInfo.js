@@ -1,37 +1,39 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPost, deletePost } from '../actions';
 
 class PostInfo extends Component {
   componentDidMount() {
-    this.props.getPost(this.props.match.params.id);
+    const { getPost, match } = this.props;
+    getPost(match.params.id);
   }
 
   render() {
-    const post = this.props.post;
+    const { post, deletePost } = this.props;
     return (
       <div>
         <h2>
-          {post.id}: {post.title}
+          {post.title}
         </h2>
         <p>{post.body}</p>
         <div>
           <Link
             to={{
               pathname: `/posts/${post.id}/edit`,
-              state: { post: post }
+              state: { post },
             }}
           >
             Edit
           </Link>
           <button
-            type='button'
-            onClick={() => this.props.deletePost(post.id)}
+            type="button"
+            onClick={() => deletePost(post.id)}
           >
             Delete
           </button>
-          <Link to='/post'>
+          <Link to="/post">
             Close
           </Link>
         </div>
@@ -40,6 +42,13 @@ class PostInfo extends Component {
     );
   }
 }
+
+PostInfo.propTypes = {
+  getPost: PropTypes.func.isRequired,
+  match: PropTypes.func.isRequired,
+  post: PropTypes.arrayOf.isRequired,
+  deletePost: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({ post: state.post });
 
