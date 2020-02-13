@@ -4,7 +4,7 @@
 
 ## 🚀 Getting Started
 
-> This guide shows how to clone, install, start and develop the client-side in your local environment. 
+> This guide shows how to clone, install, start the app in your local environment. 
 
 ### Clone
 
