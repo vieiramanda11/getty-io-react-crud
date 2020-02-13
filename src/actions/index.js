@@ -73,7 +73,6 @@ export const deletePost = id => {
 };
 
 export const updatePost = post => {
-  const postId = post.id;
   return dispatch => {
     return axios
       .patch(`${BASE_URL}/${post.id}`, {
@@ -92,7 +91,7 @@ export const updatePost = post => {
         });
       })
       .then(() => {
-        history.push(`/post/${postId}`);
+        history.push(`/posts`);
       })
       .catch(error => {
         throw error;
