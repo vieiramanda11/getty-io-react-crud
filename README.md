@@ -1,5 +1,7 @@
 <h1 align="center">React & Redux - CRUD APP</h1>
 
+### ✨ [Demo](https://react-crud-getty-io.herokuapp.com)
+
 ## 🚀 Getting Started
 
 > This guide shows how to clone, install, start and develop the client-side in your local environment. 
