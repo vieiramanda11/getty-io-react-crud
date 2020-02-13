@@ -1,1 +1,0 @@
-# getty-io-react-crud
