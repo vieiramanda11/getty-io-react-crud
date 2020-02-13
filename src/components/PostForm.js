@@ -52,14 +52,18 @@ const PostForm = ({ addPost }) => {
   };
 
   return (
-    <div className="form-container">
+    <div className="ui massive form container">
       <div className="line" />
-      <p>ADD NEW POST</p>
+      <p>NEW POST</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={state.title} name="title" placeholder="Post title" className="input-title" />
-        <p>{state.titleError}</p>
-        <input type="text" onChange={handleChange} value={state.body} name="body" placeholder="Post content" className="input-body" />
-        <p>{state.bodyError}</p>
+        <div className="fields">
+          <input type="text" onChange={handleChange} value={state.title} name="title" placeholder="Post title" className="six wide field" />
+          <p>{state.titleError}</p>
+        </div>
+        <div className="fields">
+          <input type="text" onChange={handleChange} value={state.body} name="body" placeholder="Post content" className="six wide field" />
+          <p>{state.bodyError}</p>
+        </div>
         <button type="submit" className="button-form">ADD POST</button>
       </form>
     </div>

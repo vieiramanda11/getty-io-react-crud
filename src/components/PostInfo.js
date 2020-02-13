@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getPost, deletePost } from '../actions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getPost, deletePost } from "../actions";
 
 class PostInfo extends Component {
   componentDidMount() {
@@ -14,30 +14,35 @@ class PostInfo extends Component {
     const { post, deletePost } = this.props;
     return (
       <div>
-        <h2>
-          {post.title}
-        </h2>
-        <p>{post.body}</p>
-        <div>
-          <Link
-            to={{
-              pathname: `/posts/${post.id}/edit`,
-              state: { post },
-            }}
-          >
-            Edit
-          </Link>
-          <button
-            type="button"
-            onClick={() => deletePost(post.id)}
-          >
-            Delete
-          </button>
-          <Link to="/posts">
-            Close
-          </Link>
+        <div className="ui card">
+          <div className="content">
+            <div className="header">{post.title}</div>
+            <div className="description">
+              <p>{post.body}</p>
+            </div>
+          </div>
+          <div className="extra content">
+            <div className="ui three buttons">
+              <button className="ui basic blue button">
+                <Link
+                  to={{ pathname: `/posts/${post.id}/edit`, state: { post } }}
+                >
+                  Edit
+                </Link>
+              </button>
+              <button
+                className="ui basic red button"
+                type="button"
+                onClick={() => deletePost(post.id)}
+              >
+                Delete
+              </button>
+              <button className="ui basic green button">
+                <Link to="/posts">Back</Link>
+              </button>
+            </div>
+          </div>
         </div>
-        <hr />
       </div>
     );
   }
@@ -47,7 +52,7 @@ PostInfo.propTypes = {
   getPost: PropTypes.func.isRequired,
   match: PropTypes.func.isRequired,
   post: PropTypes.arrayOf.isRequired,
-  deletePost: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({ post: state.post });

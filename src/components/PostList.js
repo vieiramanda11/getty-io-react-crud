@@ -11,13 +11,13 @@ const PostList = ({ posts }) => {
         <div className="ui card">
           <div className="content">
             <div className="header">
-              <Link to={`/posts/${post.id}`}>
                 {post.title}
+            </div>
+            <p>
+              <Link to={`/posts/${post.id}`}>
+                Show
               </Link>
-            </div>
-            <div className="description">
-              <p>{post.body}</p>
-            </div>
+            </p>
           </div>
         </div>
       </div>

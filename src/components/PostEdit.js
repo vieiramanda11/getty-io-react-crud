@@ -51,17 +51,15 @@ class PostEdit extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui massive form container">
         <h1>Edit {this.props.post.title}</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label>Title</label>
-            <input type="text" name="title" defaultValue={this.props.post.title} onChange={this.handleChange} />
+            <input type="text" name="title" defaultValue={this.props.post.title} onChange={this.handleChange} placeholder="Post title" className="six wide field"/>
             <p>{this.state.titleError}</p>
           </div>
           <div>
-            <label>Content</label>
-            <textarea name="body" rows="3" defaultValue={this.props.post.body} onChange={this.handleChange}/>
+            <textarea name="body" rows="3" defaultValue={this.props.post.body} onChange={this.handleChange} placeholder="Post content" className="six wide field"/>
             <p>{this.state.bodyError}</p>
           </div>
           <div>
