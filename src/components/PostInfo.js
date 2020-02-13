@@ -33,7 +33,7 @@ class PostInfo extends Component {
           >
             Delete
           </button>
-          <Link to="/post">
+          <Link to="/posts">
             Close
           </Link>
         </div>
