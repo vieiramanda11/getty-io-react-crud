@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePost } from '../actions';
+import { Form, Title, Button, Input, Textarea } from '../styles/styles';
 
 class PostEdit extends Component {
   state = {
@@ -51,22 +52,16 @@ class PostEdit extends Component {
 
   render() {
     return (
-      <div className="ui massive form container">
-        <h1>Edit {this.props.post.title}</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input type="text" name="title" defaultValue={this.props.post.title} onChange={this.handleChange} placeholder="Post title" className="six wide field"/>
-            <p>{this.state.titleError}</p>
-          </div>
-          <div>
-            <textarea name="body" rows="3" defaultValue={this.props.post.body} onChange={this.handleChange} placeholder="Post content" className="six wide field"/>
-            <p>{this.state.bodyError}</p>
-          </div>
-          <div>
-            <button type="submit" className="btn btn-dark">Update</button>
-            <button type="button" onClick={this.handleCancel}>Cancel</button>
-          </div>
-        </form>
+      <div>
+        <Form onSubmit={this.handleSubmit}>
+          <Title>Edit {this.props.post.title}</Title>
+          <Input type="text" name="title" defaultValue={this.props.post.title} onChange={this.handleChange} placeholder="Post title"/>
+          <p>{this.state.titleError}</p>
+          <Textarea name="body" rows="3" defaultValue={this.props.post.body} onChange={this.handleChange} placeholder="Post content"/>
+          <p>{this.state.bodyError}</p>
+          <Button type="submit">Update</Button>
+          <Button type="button" onClick={this.handleCancel}>Cancel</Button>
+        </Form>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/App.css';
 import { Route, Router, Switch } from 'react-router-dom';
 import PostList from './PostList';
 import PostForm from './PostForm';

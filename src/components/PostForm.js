@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../actions/index';
+import { Form, Title, Button, Input, Textarea } from '../styles/styles';
 
 const PostForm = ({ addPost }) => {
   const [state, setState] = useState({
@@ -52,20 +53,15 @@ const PostForm = ({ addPost }) => {
   };
 
   return (
-    <div className="ui massive form container">
-      <div className="line" />
-      <p>NEW POST</p>
-      <form onSubmit={handleSubmit}>
-        <div className="fields">
-          <input type="text" onChange={handleChange} value={state.title} name="title" placeholder="Post title" className="six wide field" />
-          <p>{state.titleError}</p>
-        </div>
-        <div className="fields">
-          <input type="text" onChange={handleChange} value={state.body} name="body" placeholder="Post content" className="six wide field" />
-          <p>{state.bodyError}</p>
-        </div>
-        <button type="submit" className="button-form">ADD POST</button>
-      </form>
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Title>NEW POST</Title>
+        <Input type="text" onChange={handleChange} value={state.title} name="title" placeholder="Post title"/>
+        <p>{state.titleError}</p>
+        <Textarea type="text" rows="5" onChange={handleChange} value={state.body} name="body" placeholder="Post content" />
+        <p>{state.bodyError}</p>
+        <Button type="submit" className="button-form">ADD POST</Button>
+      </Form>
     </div>
   );
 };
