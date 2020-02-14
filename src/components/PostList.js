@@ -2,24 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Card, Cardbody, Cardtitle } from '../styles/styles';
 
 const PostList = ({ posts }) => {
   let renderPosts;
   if (posts.length) {
     renderPosts = posts.map(post => (
-      <div key={post.id} className="column">
-        <div className="ui card">
-          <div className="content">
-            <div className="header">
+      <div key={post.id}>
+        <Card>
+          <Cardbody className="content">
+            <Cardtitle className="header">
                 {post.title}
-            </div>
-            <p>
+            </Cardtitle>
+            <h3>
               <Link to={`/posts/${post.id}`}>
-                Show
+                See post
               </Link>
-            </p>
-          </div>
-        </div>
+            </h3>
+          </Cardbody>
+        </Card>
       </div>
     ));
   }
